@@ -1,0 +1,868 @@
+<!-- structural tags -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- metadata tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A visual guide to structural, semantic, text, media, and form HTML elements."
+    />
+    <title>HTML Elements Reference</title>
+    <style>
+:root {
+  color-scheme: light;
+  --ink: #202925;
+  --muted: #65716b;
+  --paper: #f4f5ef;
+  --surface: #ffffff;
+  --line: #d9ded6;
+  --green: #1f5148;
+  --lime: #c9ec79;
+  --coral: #e5684b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: radial-gradient(#dce2d8 0.7px, transparent 0.7px);
+  background-size: 18px 18px;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+.site-header,
+main,
+footer {
+  width: min(100% - 48px, 1060px);
+  margin-inline: auto;
+}
+
+.site-header {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+  color: var(--green);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.wordmark span,
+.accent {
+  color: var(--coral);
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav a,
+footer a {
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav a:hover,
+footer a:hover,
+.text-link:hover {
+  color: var(--coral);
+}
+
+.intro {
+  max-width: 720px;
+  padding: 82px 0 72px;
+  animation: arrive 650ms ease-out both;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+h1 {
+  margin-bottom: 12px;
+  font-size: 64px;
+  line-height: 1.08;
+}
+
+.intro-copy {
+  max-width: 520px;
+  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.work {
+  padding: 32px 0 82px;
+  border-top: 1px solid var(--line);
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 4px;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.project-count {
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.project {
+  position: relative;
+  display: block;
+  min-height: 190px;
+  padding: 24px 58px 22px 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.project:hover {
+  transform: translateY(-3px);
+  border-color: var(--green);
+  box-shadow: 5px 5px 0 var(--lime);
+}
+
+.project:focus-visible,
+nav a:focus-visible,
+.wordmark:focus-visible,
+footer a:focus-visible,
+.text-link:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 4px;
+}
+
+.project-number {
+  color: var(--coral);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.project h3 {
+  margin: 12px 0 5px;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.project p {
+  max-width: 360px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.project-arrow {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  color: var(--green);
+  font-size: 20px;
+  transition: transform 160ms ease;
+}
+
+.project:hover .project-arrow {
+  transform: translate(2px, -2px);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 0 30px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer a {
+  color: var(--green);
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 620px) {
+  .site-header,
+  main,
+  footer {
+    width: min(100% - 32px, 1060px);
+  }
+
+  .site-header {
+    min-height: 72px;
+  }
+
+  nav {
+    gap: 16px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  .intro {
+    padding: 64px 0 56px;
+  }
+
+  h1 {
+    font-size: 52px;
+  }
+
+  .intro-copy {
+    font-size: 16px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project {
+    min-height: 170px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+</style>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: #202a3a;
+        background: #f2f5fa;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        scroll-behavior: smooth;
+        --ink: #202a3a;
+        --muted: #5f6d80;
+        --paper: #f2f5fa;
+        --surface: #fff;
+        --line: #e0e6ef;
+        --blue: #3157c8;
+        --violet: #693fc2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        width: min(100% - 40px, 1080px);
+        margin: 0 auto;
+        padding: 28px 0 48px;
+        line-height: 1.65;
+      }
+
+      header {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(32px, 7vw, 68px);
+        border-radius: 22px;
+        color: #fff;
+        background:
+          radial-gradient(
+            circle at 88% 12%,
+            rgb(255 255 255 / 20%),
+            transparent 25%
+          ),
+          linear-gradient(135deg, var(--blue), var(--violet));
+        box-shadow: 0 20px 50px rgb(38 56 108 / 16%);
+      }
+
+      header h1 {
+        margin: 0 0 8px;
+        color: #fff;
+        font-size: clamp(2.5rem, 7vw, 4rem);
+        letter-spacing: -0.04em;
+        text-transform: capitalize;
+      }
+
+      header p {
+        max-width: 600px;
+        margin: 0;
+        color: rgb(255 255 255 / 82%);
+        font-size: 1.1rem;
+      }
+
+      nav,
+      main,
+      body > section,
+      body > footer {
+        margin-top: 24px;
+      }
+
+      nav,
+      main,
+      body > section {
+        padding: clamp(20px, 4vw, 32px);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--surface);
+        box-shadow: 0 8px 28px rgb(30 50 90 / 5%);
+      }
+
+      nav ol {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      nav a {
+        display: block;
+        padding: 7px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #f7f8fc;
+        font-size: 0.9rem;
+        text-decoration: none;
+        text-transform: capitalize;
+        transition:
+          border-color 160ms ease,
+          color 160ms ease,
+          background-color 160ms ease;
+      }
+
+      a {
+        color: var(--blue);
+      }
+
+      a:hover {
+        color: var(--violet);
+      }
+
+      nav a:hover {
+        border-color: #c9c0eb;
+        background: #f1edfb;
+      }
+
+      main > dl {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+        gap: 12px;
+        margin: 0;
+      }
+
+      main dl section,
+      main > section {
+        min-width: 0;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fbfcfe;
+      }
+
+      main dt {
+        color: var(--ink);
+        font-weight: 750;
+      }
+
+      main dd {
+        margin: 5px 0 0;
+        color: var(--muted);
+      }
+
+      h2,
+      h3 {
+        color: var(--ink);
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        margin-top: 0;
+        font-size: clamp(1.35rem, 3vw, 1.7rem);
+      }
+
+      h3 {
+        font-size: 1.15rem;
+      }
+
+      body > section article,
+      body > section aside {
+        padding: 18px;
+        border-radius: 12px;
+        background: #f7f8fc;
+      }
+
+      body > section aside {
+        margin-top: 14px;
+        border-left: 4px solid var(--blue);
+      }
+
+      body > section p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      body > section ul,
+      body > section ol {
+        color: var(--muted);
+      }
+
+      img,
+      video,
+      iframe {
+        display: block;
+        max-width: 100%;
+        border: 0;
+        border-radius: 12px;
+      }
+
+      img {
+        max-height: 520px;
+        object-fit: cover;
+      }
+
+      table {
+        width: 100%;
+        overflow: hidden;
+        border-collapse: collapse;
+        border-radius: 10px;
+      }
+
+      th,
+      td {
+        padding: 11px 14px;
+        text-align: left;
+        border: 1px solid var(--line);
+      }
+
+      th {
+        color: #fff;
+        background: var(--blue);
+      }
+
+      tr:nth-child(even) td {
+        background: #f7f8fc;
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px 14px;
+        max-width: 640px;
+      }
+
+      form label {
+        align-self: end;
+        font-weight: 650;
+      }
+
+      form input:not([type="submit"]) {
+        width: 100%;
+      }
+
+      input {
+        min-height: 42px;
+        padding: 9px 12px;
+        border: 1px solid #c8d1df;
+        border-radius: 8px;
+        font: inherit;
+      }
+
+      input:focus-visible,
+      a:focus-visible {
+        outline: 3px solid #a796e5;
+        outline-offset: 3px;
+      }
+
+      input[type="submit"] {
+        grid-column: 1 / -1;
+        justify-self: start;
+        min-width: 120px;
+        color: #fff;
+        background: var(--blue);
+        border: 0;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background: var(--violet);
+      }
+
+      pre {
+        max-width: 100%;
+        padding: 18px;
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        color: #eaf0ff;
+        background: #202a3a;
+        text-align: left;
+      }
+
+      div {
+        border-radius: 8px;
+      }
+
+      body > footer {
+        padding: 18px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          width: min(100% - 24px, 1080px);
+          padding-top: 12px;
+        }
+
+        header,
+        nav,
+        main,
+        body > section {
+          padding: 20px;
+        }
+
+        nav ol {
+          gap: 7px;
+        }
+
+        nav a {
+          padding: 6px 10px;
+          font-size: 0.82rem;
+        }
+
+        form {
+          grid-template-columns: 1fr;
+        }
+
+        form label {
+          align-self: auto;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- semantic tags -->
+    <header>
+      <h1>html tags</h1>
+      <p>this website displays various html tags</p>
+    </header>
+    <!-- 10. SEMANTIC TAGS -->
+    <section>
+      <h2>Semantic HTML</h2>
+      <article>
+        <h3>What is Semantic HTML?</h3>
+        <p>
+          Semantic HTML uses meaningful tags to describe the purpose of content.
+        </p>
+      </article>
+      <aside>
+        <h3>Did You Know?</h3>
+        <p>Semantic HTML improves readability, accessibility and SEO.</p>
+      </aside>
+    </section>
+    <!--link/Anchor tags-->
+    <nav>
+      <ol>
+        <li><a href="#structural-tags">structural tags</a></li>
+        <li><a href="#semantic-tags">semantic tags</a></li>
+        <li><a href="#text-formatting-tags">text formatting tags</a></li>
+        <li><a href="#inline-tags">inline tags</a></li>
+        <li><a href="#list-tags">list tags</a></li>
+        <li><a href="#image-tags">image tags</a></li>
+        <li><a href="#table-tags">table tags</a></li>
+        <li><a href="#form-tags">form tags</a></li>
+        <li><a href="#media-tags">media tags</a></li>
+        <li><a href="#div-tags">div tags</a></li>
+        <li><a href="#code-and-pre-tags">code and pre tags</a></li>
+        <li><a href="#iframe-tags">iframe tags</a></li>
+        <li><a href="#footer-tags">footer tags</a></li>
+        <li>
+          <a href="#accessbility_and_seo_tags">accessibility and seo tags</a>
+        </li>
+      </ol>
+    </nav>
+    <!--text formating tags-->
+    <main>
+      <dl>
+        <section id="structural-tags">
+          <dt>Structural Tags</dt>
+          <dd>These tags define the structure of the HTML document.</dd>
+        </section>
+        <section id="semantic-tags">
+          <dt>Semantic Tags</dt>
+          <dd>These tags provide meaning to the content they contain.</dd>
+        </section>
+        <section id="text-formatting-tags">
+          <dt>Text Formatting Tags</dt>
+          <dd>These tags are used to format text in various ways.</dd>
+        </section>
+        <section id="inline-tags">
+          <dt>Inline Tags</dt>
+          <dd>These tags are used to format text inline within a paragraph.</dd>
+        </section>
+        <section id="list-tags">
+          <dt>List Tags</dt>
+          <dd>These tags are used to create ordered and unordered lists.</dd>
+        </section>
+        <section id="image-tags">
+          <dt>Image Tags</dt>
+          <dd>These tags are used to embed images in the document.</dd>
+        </section>
+        <section id="table-tags">
+          <dt>Table Tags</dt>
+          <dd>These tags are used to create tables in the document.</dd>
+        </section>
+        <section id="form-tags">
+          <dt>Form Tags</dt>
+          <dd>These tags are used to create forms for user input.</dd>
+        </section>
+        <section id="media-tags">
+          <dt>Media Tags</dt>
+          <dd>These tags are used to embed media content in the document.</dd>
+        </section>
+        <section id="div-tags">
+          <dt>Div Tags</dt>
+          <dd>These tags are used to group other HTML elements together.</dd>
+        </section>
+        <section id="code-and-pre-tags">
+          <dt>Code and Pre Tags</dt>
+          <dd>These tags are used to display code and preformatted text.</dd>
+        </section>
+        <section id="iframe-tags">
+          <dt>Iframe Tags</dt>
+          <dd>
+            These tags are used to embed another HTML document within the
+            current document.
+          </dd>
+        </section>
+        <section id="footer-tags">
+          <dt>Footer Tags</dt>
+          <dd>
+            These tags are used to define the footer section of the document.
+          </dd>
+        </section>
+      </dl>
+      <section id="accessbility_and_seo_tags">
+        <dt>Accessibility and SEO Tags</dt>
+        <dd>
+          These tags are used to improve accessibility and search engine
+          optimization.
+        </dd>
+      </section>
+    </main>
+    <!--inline tags-->
+    <section>
+      <h2>Inline Tags</h2>
+      <p>This is an example of <strong>strong</strong> text.</p>
+      <p>This is an example of <em>emphasized</em> text.</p>
+      <p>This is an example of <u>underlined</u> text.</p>
+      <p>This is an example of <s>strikethrough</s> text.</p>
+    </section>
+    <!--list tags-->
+    <section>
+      <h2>List Tags</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+      </ul>
+      <ol>
+        <li>Learn HTML</li>
+        <li>Learn CSS</li>
+        <li>Learn JavaScript</li>
+        <li>Build a Website</li>
+      </ol>
+      <h3>Description List</h3>
+      <dl>
+        <dt>HTML</dt>
+        <dd>HTML is used to create the structure of a webpage.</dd>
+        <dt>CSS</dt>
+        <dd>CSS is used to style a webpage.</dd>
+        <dt>JavaScript</dt>
+        <dd>JavaScript is used to add interactivity.</dd>
+      </dl>
+    </section>
+    <!--image tags-->
+    <section>
+      <h2>Image Tags</h2>
+      <img src="certifications-html-win-20260815-10-24-16-pro.jpg" alt="amogh bhai" />
+      <p>This is an example of an image tag.</p>
+    </section>
+    <!--table tags-->
+    <section>
+      <h2>Table Tags</h2>
+      <table border="1">
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+        <tr>
+          <td>MJ</td>
+          <td>30</td>
+          <td>New York</td>
+        </tr>
+        <tr>
+          <td>Jane grey</td>
+          <td>25</td>
+          <td>new york</td>
+        </tr>
+      </table>
+    </section>
+    <!--form tags-->
+    <section>
+      <h2>Form Tags</h2>
+      <form action="/submit" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required /><br /><br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required /><br /><br />
+        <input type="submit" value="Submit" />
+      </form>
+    </section>
+    <!--media tags-->
+    <section>
+      <h2>Media Tags</h2>
+      <video width="320" height="240" controls>
+        No sample video file was included.
+      </video>
+      <audio controls>
+        No sample audio file was included.
+      </audio>
+      <p>Sample video and audio files were not included with this project.</p>
+    </section>
+    <!--div tags-->
+    <section>
+      <h2>Div Tags</h2>
+      <div style="background-color: lightblue; padding: 10px">
+        This is a div element.
+      </div>
+    </section>
+    <!--code and pre tags-->
+    <section>
+      <h2>Code and Pre Tags</h2>
+      <pre>
+        <code>
+          function helloWorld() {
+            console.log("Hello, world!");
+          }
+        </code>
+      </pre>
+    </section>
+    <!--iframe tags-->
+    <section>
+      <h2>Iframe Tags</h2>
+      <iframe
+        src="certifications-html-win-20260815-10-24-16-pro.jpg"
+        width="300"
+        height="200"
+        title="Example Iframe"
+      ></iframe>
+    </section>
+    <!--footer tags-->
+    <footer>
+      <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

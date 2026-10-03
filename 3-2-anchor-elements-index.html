@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><style>
+:root {
+  color-scheme: light;
+  --ink: #202925;
+  --muted: #65716b;
+  --paper: #f4f5ef;
+  --surface: #ffffff;
+  --line: #d9ded6;
+  --green: #1f5148;
+  --lime: #c9ec79;
+  --coral: #e5684b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: radial-gradient(#dce2d8 0.7px, transparent 0.7px);
+  background-size: 18px 18px;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+.site-header,
+main,
+footer {
+  width: min(100% - 48px, 1060px);
+  margin-inline: auto;
+}
+
+.site-header {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+  color: var(--green);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.wordmark span,
+.accent {
+  color: var(--coral);
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav a,
+footer a {
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav a:hover,
+footer a:hover,
+.text-link:hover {
+  color: var(--coral);
+}
+
+.intro {
+  max-width: 720px;
+  padding: 82px 0 72px;
+  animation: arrive 650ms ease-out both;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+h1 {
+  margin-bottom: 12px;
+  font-size: 64px;
+  line-height: 1.08;
+}
+
+.intro-copy {
+  max-width: 520px;
+  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.work {
+  padding: 32px 0 82px;
+  border-top: 1px solid var(--line);
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 4px;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.project-count {
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.project {
+  position: relative;
+  display: block;
+  min-height: 190px;
+  padding: 24px 58px 22px 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.project:hover {
+  transform: translateY(-3px);
+  border-color: var(--green);
+  box-shadow: 5px 5px 0 var(--lime);
+}
+
+.project:focus-visible,
+nav a:focus-visible,
+.wordmark:focus-visible,
+footer a:focus-visible,
+.text-link:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 4px;
+}
+
+.project-number {
+  color: var(--coral);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.project h3 {
+  margin: 12px 0 5px;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.project p {
+  max-width: 360px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.project-arrow {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  color: var(--green);
+  font-size: 20px;
+  transition: transform 160ms ease;
+}
+
+.project:hover .project-arrow {
+  transform: translate(2px, -2px);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 0 30px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer a {
+  color: var(--green);
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 620px) {
+  .site-header,
+  main,
+  footer {
+    width: min(100% - 32px, 1060px);
+  }
+
+  .site-header {
+    min-height: 72px;
+  }
+
+  nav {
+    gap: 16px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  .intro {
+    padding: 64px 0 56px;
+  }
+
+  h1 {
+    font-size: 52px;
+  }
+
+  .intro-copy {
+    font-size: 16px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project {
+    min-height: 170px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+</style></head>
+<body>
+<h1>My top 5 Favourite Websites</h1>
+<!-- Write your code below -->
+<ol>
+  <li><a href="https://www.google.com/"> google </a></li>
+  <li><a href="https://smashthewalls.com/">Smash the Walls</a></li>
+  <li><a href="https://krunker.io/">krumker</a></li>
+  <li><a href="https://hackertyper.com/">Hacker Typer</a></li>
+  <li><a href="https://stellarium-web.org/">Stellarium</a></li>
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- 1. STRUCTURAL TAGS -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Tags Demonstration</title>
+  <style>
+:root { color-scheme: light; --ink: #202925; --muted: #65716b; --paper: #f4f5ef; --line: #d9ded6; --green: #1f5148; --coral: #e5684b; }
+* { box-sizing: border-box; }
+body { max-width: 1100px; margin: 0 auto; padding: 24px; color: var(--ink); background: var(--paper); font: 16px/1.6 "Trebuchet MS", "Segoe UI", sans-serif; }
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+a { color: var(--green); }
+img, video, iframe { max-width: 100%; height: auto; }
+table { max-width: 100%; border-collapse: collapse; }
+th, td { padding: 8px; border: 1px solid var(--line); }
+</style>
+</head>
+  <body>
+    <!-- 1. STRUCTURAL TAGS -->
+    <header>
+      <h1>My HTML Learning Page</h1>
+      <p>Welcome to my website. This page demonstrates different HTML tags.</p>
+    </header>
+    <!-- 2. LINKS / ANCHOR TAGS -->
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#courses">Courses</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.google.com" target="_blank">Visit Google</a>
+    </nav>
+    <main>
+      <!-- 3. TEXT FORMATTING TAGS -->
+      <section id="home">
+        <h2>Text Formatting</h2>
+        <h3>This is Heading 3</h3>
+        <h4>This is Heading 4</h4>
+        <h5>This is Heading 5</h5>
+        <h6>This is Heading 6</h6>
+        <p>This is a normal paragraph.</p>
+        <p>This is <strong>important text</strong>.</p>
+        <p>This is <b>bold text</b>.</p>
+        <p>This is <em>emphasized text</em>.</p>
+        <p>This is <i>italic text</i>.</p>
+        <p>This is <u>underlined text</u>.</p>
+        <p>This is <mark>highlighted text</mark>.</p>
+        <p>Water formula is H<sub>2</sub>O.</p>
+        <p>10<sup>2</sup> = 100</p>
+        <p>Hello<br />Welcome to HTML</p>
+        <hr />
+      </section>
+      <!-- 4. INLINE TAGS -->
+      <section>
+        <h2>Inline Elements</h2>
+        <p>HTML is a <span>markup language</span>.</p>
+        <p>Learn <strong>HTML</strong>, <em>CSS</em> and <b>JavaScript</b>.</p>
+        <p>Visit <a href="https://www.example.com">Example</a> website.</p>
+      </section>
+      <!-- 5. LIST TAGS -->
+      <section id="courses">
+        <h2>Lists</h2>
+        <h3>Unordered List</h3>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Python</li>
+        </ul>
+        <h3>Ordered List</h3>
+        <ol>
+          <li>Learn HTML</li>
+          <li>Learn CSS</li>
+          <li>Learn JavaScript</li>
+          <li>Build a Website</li>
+        </ol>
+        <h3>Description List</h3>
+        <dl>
+          <dt>HTML</dt>
+          <dd>HTML is used to create the structure of a webpage.</dd>
+          <dt>CSS</dt>
+          <dd>CSS is used to style a webpage.</dd>
+          <dt>JavaScript</dt>
+          <dd>JavaScript is used to add interactivity.</dd>
+        </dl>
+      </section>
+      <!-- 6. IMAGE TAGS -->
+      <section>
+        <h2>Images</h2>
+        <img src="red.png" alt="Sample image" width="300" />
+        <p>The image above is added using the <b>img</b> tag.</p>
+      </section>
+      <!-- 7. TABLE TAGS -->
+      <section>
+        <h2>Student Table</h2>
+        <table border="1">
+          <caption>
+            Student Information
+          </caption>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Course</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rahul</td>
+              <td>20</td>
+              <td>HTML</td>
+            </tr>
+            <tr>
+              <td>Priya</td>
+              <td>21</td>
+              <td>CSS</td>
+            </tr>
+            <tr>
+              <td>Arun</td>
+              <td>22</td>
+              <td>JavaScript</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <!-- 8. FORM TAGS -->
+      <section id="contact">
+        <h2>Registration Form</h2>
+        <form action="#" method="post">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+          <br /><br />
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+          <br /><br />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" />
+          <br /><br />
+          <p>Gender:</p>
+          <input type="radio" id="male" name="gender" value="male" />
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="female" />
+          <label for="female">Female</label>
+          <br /><br />
+          <p>Skills:</p>
+          <input type="checkbox" id="html" name="skills" value="html" />
+          <label for="html">HTML</label>
+          <input type="checkbox" id="css" name="skills" value="css" />
+          <label for="css">CSS</label>
+          <input
+            type="checkbox"
+            id="javascript"
+            name="skills"
+            value="javascript"
+          />
+          <label for="javascript">JavaScript</label>
+          <br /><br />
+          <label for="course">Choose Course:</label>
+          <select id="course" name="course">
+            <option value="">Select a course</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">JavaScript</option>
+          </select>
+          <br /><br />
+          <label for="message">Message:</label>
+          <br />
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            cols="40"
+            placeholder="Enter your message"
+          ></textarea>
+          <br /><br />
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+        </form>
+      </section>
+      <!-- 9. MEDIA TAGS -->
+      <section>
+        <h2>Media</h2>
+        <h3>Video</h3>
+        <video width="400" controls>
+          No sample video file was included.
+        </video>
+        <h3>Audio</h3>
+        <audio controls>
+          No sample audio file was included.
+        </audio>
+        <p>Sample video and audio files were not included with this project.</p>
+      </section>
+      <!-- 10. SEMANTIC TAGS -->
+      <section>
+        <h2>Semantic HTML</h2>
+        <article>
+          <h3>What is Semantic HTML?</h3>
+          <p>
+            Semantic HTML uses meaningful tags to describe the purpose of
+            content.
+          </p>
+        </article>
+        <aside>
+          <h3>Did You Know?</h3>
+          <p>Semantic HTML improves readability, accessibility and SEO.</p>
+        </aside>
+      </section>
+      <!-- 11. DIV TAG -->
+      <section>
+        <h2>Div Example</h2>
+        <div>
+          <h3>HTML Course</h3>
+          <p>Learn HTML from basic to advanced.</p>
+        </div>
+      </section>
+      <!-- 12. CODE AND PRE TAGS -->
+      <section>
+        <h2>Displaying Code</h2>
+        <p>Use the <code>&lt;p&gt;</code> tag to create a paragraph.</p>
+        <pre>
+This is preformatted text.
+Spaces and
+line breaks
+are preserved.</pre
+        >
+      </section>
+      <!-- 13. IFRAME TAG -->
+      <section>
+        <h2>Iframe</h2>
+        <iframe
+          src="https://example.com"
+          width="500"
+          height="250"
+          title="Example Website"
+        ></iframe>
+      </section>
+    </main>
+    <!-- 14. FOOTER TAG -->
+    <footer>
+      <hr />
+      <p>&copy: 2026 My HTML Learning Website</p>
+      <p>
+        Contact: <a href="mailto:student@example.com">student@example.com</a>
+      </p>
+    </footer>
+  </body>
+</html>

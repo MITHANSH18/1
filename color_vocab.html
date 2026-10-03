@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Learn the names of colors in Spanish." />
+    <title>Spanish Color Vocabulary</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #24342f;
+        --muted: #69756e;
+        --paper: #f6f7f0;
+        --line: #dfe4d9;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        width: min(100% - 40px, 720px);
+        margin: 0 auto;
+        padding: 48px 0 64px;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      h1,
+      h2 {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+      h1 {
+        margin: 0;
+        font-size: 48px;
+      }
+      body > h2:not(.color-title) {
+        margin: 8px 0 38px;
+        color: var(--muted);
+        font-size: 17px;
+        font-weight: 400;
+      }
+
+      .color-title {
+        width: fit-content;
+        min-width: 150px;
+        margin: 24px auto 8px;
+        padding: 5px 14px;
+        border-bottom: 2px solid var(--line);
+        font-size: 23px;
+        font-weight: 400;
+      }
+
+      #red {
+        color: #c4463b;
+      }
+      #blue {
+        color: #315ea8;
+      }
+      #orange {
+        color: #bd641c;
+      }
+      #green {
+        color: #36734e;
+      }
+      #yellow {
+        color: #917313;
+      }
+
+      img {
+        display: block;
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        background: #fff;
+        object-fit: contain;
+      }
+
+      @media (max-width: 480px) {
+        body {
+          width: min(100% - 32px, 720px);
+          padding-top: 36px;
+        }
+        h1 {
+          font-size: 40px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Colors</h1>
+    <h2>Learn the colors in Spanish!</h2>
+    <h2 class="color-title" id="red">Rojo</h2>
+    <img src="red.png" alt="A red apple" />
+
+    <h2 class="color-title" id="blue">Azul</h2>
+    <img src="blue.png" alt="Blue-colored object" />
+
+    <h2 class="color-title" id="orange">Anaranjado</h2>
+    <img src="orange.png" alt="An orange-colored object" />
+
+    <h2 class="color-title" id="green">Verde</h2>
+    <img src="green.png" alt="A green-colored object" />
+
+    <h2 class="color-title" id="yellow">Amarillo</h2>
+    <img src="yellow.png" alt="A yellow-colored object" />
+  </body>
+</html>
