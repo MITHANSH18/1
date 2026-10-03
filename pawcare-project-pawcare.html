@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Find grooming, hygiene, and vaccination support for your dog with PawCare."
+    />
+    <title>PawCare | Everyday dog care</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #1e2c31;
+        --muted: #60727a;
+        --paper: #f3f7f5;
+        --surface: #fff;
+        --line: #d8e3dd;
+        --coral: #3f7fa6;
+        --coral-dark: #245b79;
+        --teal: #29644d;
+        --lime: #f2c75c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+      a {
+        color: inherit;
+      }
+      .container {
+        width: min(100% - 48px, 1120px);
+        margin-inline: auto;
+      }
+      .gradient-background {
+        background: #e7eff5;
+      }
+
+      #title .container {
+        padding-block: 54px;
+      }
+      #title .hero-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 390px);
+        gap: 48px;
+        align-items: center;
+      }
+      #title .hero-art {
+        grid-column: 2;
+        grid-row: 1;
+        width: 100%;
+      }
+      #title .hero-copy {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      #title img {
+        display: block;
+        width: 100%;
+        max-height: 420px;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: center 35%;
+        border: 7px solid rgb(255 255 255 / 45%);
+        border-radius: 5px;
+        box-shadow: 12px 12px 0 var(--coral-dark);
+      }
+      #title h1 {
+        max-width: 600px;
+        margin: 0 0 24px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 52px;
+        line-height: 1.08;
+      }
+      #title .d-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .btn {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 9px 15px;
+        border: 1px solid var(--teal);
+        border-radius: 4px;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 800;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          background-color 150ms ease,
+          transform 150ms ease;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-light {
+        color: var(--teal);
+        background: #fff;
+      }
+      .btn-outline-light {
+        color: var(--teal);
+        background: transparent;
+      }
+      .btn-dark {
+        color: #fff;
+        background: var(--teal);
+      }
+      .btn:hover {
+        color: #fff;
+        background: var(--coral-dark);
+      }
+
+      .site-header {
+        display: flex;
+        width: min(100% - 48px, 1120px);
+        min-height: 76px;
+        align-items: center;
+        justify-content: space-between;
+        margin-inline: auto;
+      }
+      .brand {
+        color: var(--teal);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 28px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .brand span {
+        color: var(--coral-dark);
+      }
+      .main-nav {
+        display: flex;
+        gap: 24px;
+      }
+      .main-nav a {
+        color: var(--teal);
+        font-size: 14px;
+        font-weight: 800;
+        text-decoration: none;
+      }
+      .main-nav a:hover {
+        color: var(--coral-dark);
+      }
+
+      #features .row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 28px;
+        padding-block: 64px 72px;
+      }
+      #features .col {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+      }
+      .icon-square {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+        place-items: center;
+        border-radius: 4px;
+        color: var(--teal);
+        background: var(--lime);
+      }
+      .icon-square svg {
+        height: 26px;
+      }
+      h2,
+      h3,
+      h4 {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+      #features h3 {
+        margin: 0 0 7px;
+        font-size: 22px;
+      }
+      #features p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      #care-routine > div {
+        margin: 0;
+        padding: 54px 24px;
+        color: #fff;
+        background: var(--teal);
+      }
+      #care-routine .container {
+        text-align: center;
+      }
+      #care-routine h2 {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 27px;
+        line-height: 1.4;
+      }
+      .profile-img {
+        display: block;
+        width: 96px;
+        height: 96px;
+        margin: 28px auto 10px;
+        border: 4px solid var(--lime);
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      #care-routine p {
+        margin: 0;
+        color: #d8e5d7;
+        font-size: 14px;
+      }
+      #care-routine .row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 25px;
+        align-items: center;
+        margin-top: 42px;
+      }
+      .care-label {
+        padding: 12px;
+        border: 1px solid rgb(255 255 255 / 35%);
+        border-radius: 4px;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      #pricing {
+        padding-block: 68px 76px;
+      }
+      .pricing-header {
+        max-width: 650px;
+        margin: 0 auto 28px;
+        text-align: center;
+      }
+      .pricing-header h2 {
+        margin: 0;
+        font-size: 36px;
+      }
+      .pricing-header p {
+        margin: 9px 0 0;
+        color: var(--muted);
+      }
+      #pricing .row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+      #pricing .card {
+        height: 100%;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        background: var(--surface);
+      }
+      #pricing .card-header {
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--line);
+        background: #e7efe8;
+      }
+      #pricing .card-header h4 {
+        margin: 0;
+        font-size: 21px;
+      }
+      #pricing .card-body {
+        padding: 20px;
+      }
+      #pricing .card-title {
+        margin: 0 0 18px;
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        font-size: 34px;
+        line-height: 1.2;
+      }
+      #pricing small {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 500;
+      }
+      #pricing ul {
+        display: grid;
+        gap: 9px;
+        margin: 0 0 22px;
+        padding: 16px 0 0;
+        border-top: 1px solid var(--line);
+        list-style: none;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      #pricing li::before {
+        content: "\2713";
+        margin-right: 8px;
+        color: var(--teal);
+        font-weight: 800;
+      }
+      #pricing .card-body > .btn {
+        width: 100%;
+      }
+      #pricing .border-dark {
+        border: 2px solid var(--teal);
+        box-shadow: 5px 5px 0 var(--lime);
+      }
+      #pricing .text-bg-dark {
+        color: #fff;
+        background: var(--teal);
+      }
+
+      #contact {
+        padding: 0 24px;
+        background: var(--paper);
+      }
+      .site-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        width: min(100%, 1120px);
+        margin: 0 auto;
+        padding-block: 22px 28px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .site-footer p {
+        margin: 0;
+      }
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .footer-links a {
+        color: var(--teal);
+        font-weight: 700;
+        text-decoration: none;
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--coral-dark);
+        outline-offset: 4px;
+      }
+
+      @media (max-width: 760px) {
+        #title .hero-layout {
+          grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+          gap: 28px;
+        }
+        #title h1 {
+          font-size: 42px;
+        }
+        #features .row {
+          grid-template-columns: 1fr;
+          gap: 22px;
+        }
+        #pricing .row {
+          grid-template-columns: 1fr;
+          max-width: 480px;
+          margin-inline: auto;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .container {
+          width: min(100% - 32px, 1120px);
+        }
+        #title .container {
+          padding-block: 42px;
+        }
+        #title .hero-layout {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        #title .hero-art,
+        #title .hero-copy {
+          grid-column: 1;
+        }
+        #title .hero-copy {
+          grid-row: 1;
+        }
+        #title .hero-art {
+          grid-row: 2;
+        }
+        #title h1 {
+          font-size: 38px;
+        }
+        #title img {
+          width: min(100%, 340px);
+          aspect-ratio: 5 / 4;
+        }
+        #care-routine > div {
+          padding: 42px 16px;
+        }
+        #care-routine h2 {
+          font-size: 22px;
+        }
+        #care-routine .row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 24px;
+        }
+        #pricing {
+          padding-block: 52px;
+        }
+        .pricing-header h2 {
+          font-size: 30px;
+        }
+        #contact {
+          padding-inline: 16px;
+        }
+        .site-header {
+          width: min(100% - 32px, 1120px);
+          min-height: 68px;
+        }
+        .main-nav {
+          gap: 13px;
+        }
+        .main-nav a {
+          font-size: 12px;
+        }
+        .site-footer {
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#title">PawCare<span>.</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#features">Care services</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="title" class="gradient-background">
+        <div class="container col-xxl-8 px-4 pt-5">
+          <div class="hero-layout">
+            <div class="hero-art">
+              <img src="pawcare-project-images-images.jpg" alt="Illustration of a brown dog" />
+            </div>
+            <div class="hero-copy">
+              <p class="eyebrow">EVERYDAY DOG CARE, MADE SIMPLE</p>
+              <h1>Thoughtful care for every dog.</h1>
+              <p class="hero-description">
+                Book grooming, bathing, hygiene care, and vaccine appointments
+                in one place.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#pricing" class="btn btn-light">Explore care plans</a>
+                <a href="#features" class="btn btn-outline-light"
+                  >View services</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Features -->
+      <section id="features">
+        <div class="container mt-5">
+          <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="col d-flex align-items-start">
+              <div
+                class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="30"
+                  fill="currentColor"
+                  class="bi bi-check2-circle"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"
+                  />
+                  <path
+                    d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 class="fs-2">Grooming and baths</h3>
+                <p>
+                  Coat brushing, bathing, and nail care tailored to your dog's
+                  needs.
+                </p>
+              </div>
+            </div>
+            <div class="col d-flex align-items-start">
+              <div
+                class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="30"
+                  fill="currentColor"
+                  class="bi bi-mortarboard"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"
+                  />
+                  <path
+                    d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46l-3.892-1.556Z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 class="fs-2">Clean and comfortable</h3>
+                <p>
+                  Keep up with everyday hygiene, ear cleaning, and fresh-paw
+                  care.
+                </p>
+              </div>
+            </div>
+            <div class="col d-flex align-items-start">
+              <div
+                class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="30"
+                  fill="currentColor"
+                  class="bi bi-arrow-through-heart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2.854 15.854A.5.5 0 0 1 2 15.5V14H.5a.5.5 0 0 1-.354-.854l1.5-1.5A.5.5 0 0 1 2 11.5h1.793l.53-.53c-.771-.802-1.328-1.58-1.704-2.32-.798-1.575-.775-2.996-.213-4.092C3.426 2.565 6.18 1.809 8 3.233c1.25-.98 2.944-.928 4.212-.152L13.292 2 12.147.854A.5.5 0 0 1 12.5 0h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.854.354L14 2.707l-1.006 1.006c.236.248.44.531.6.845.562 1.096.585 2.517-.213 4.092-.793 1.563-2.395 3.288-5.105 5.08L8 13.912l-.276-.182a21.86 21.86 0 0 1-2.685-2.062l-.539.54V14a.5.5 0 0 1-.146.354l-1.5 1.5Zm2.893-4.894A20.419 20.419 0 0 0 8 12.71c2.456-1.666 3.827-3.207 4.489-4.512.679-1.34.607-2.42.215-3.185-.817-1.595-3.087-2.054-4.346-.761L8 4.62l-.358-.368c-1.259-1.293-3.53-.834-4.346.761-.392.766-.464 1.845.215 3.185.323.636.815 1.33 1.519 2.065l1.866-1.867a.5.5 0 1 1 .708.708L5.747 10.96Z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 class="fs-2">Vaccines and checkups</h3>
+                <p>
+                  Stay on schedule with vaccine reminders and routine vet
+                  visits.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Care routine -->
+      <section id="care-routine">
+        <div class="my-5">
+          <div class="p-5 text-center bg-body-tertiary">
+            <div class="container py-5">
+              <h2 class="text-body-emphasis">
+                Keep grooming, hygiene, and preventive care on track.
+              </h2>
+              <img
+                class="profile-img mt-5"
+                src="pawcare-project-images-dog-img.jpg"
+                alt="Golden retriever sitting among autumn leaves"
+              />
+              <p class="col-lg-8 mx-auto lead mt-2">
+                One simple routine for a happier, healthier dog.
+              </p>
+            </div>
+
+            <div class="container">
+              <div class="row">
+                <div class="care-label">Bath and grooming</div>
+                <div class="care-label">Everyday hygiene</div>
+                <div class="care-label">Vaccination support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Pricing -->
+      <section id="pricing">
+        <div class="container">
+          <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h2 class="display-4 fw-normal">Choose your care routine</h2>
+            <p class="fs-5 text-body-secondary">
+              Straightforward plans for grooming, hygiene, and preventive care.
+            </p>
+          </div>
+          <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div class="col">
+              <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                  <h4 class="my-0 fw-normal">Essential Care</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title">
+                    ₹999<small class="text-body-secondary fw-light">/mo</small>
+                  </h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>Bath and coat brushing</li>
+                    <li>Nail trim and ear cleaning</li>
+                    <li>Basic hygiene check</li>
+                  </ul>
+                  <a
+                    class="btn btn-outline-light"
+                    href="contact.html"
+                    >Choose Essential Care</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                  <h4 class="my-0 fw-normal">Wellness Care</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title">
+                    ₹1599<small class="text-body-secondary fw-light">/mo</small>
+                  </h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>Everything in Essential Care</li>
+                    <li>Vaccine appointment reminders</li>
+                    <li>Routine wellness check</li>
+                  </ul>
+                  <a
+                    class="btn btn-dark"
+                    href="contact.html"
+                    >Choose Wellness Care</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card mb-4 rounded-3 shadow-sm border-dark">
+                <div class="card-header py-3 text-bg-dark border-dark">
+                  <h4 class="my-0 fw-normal">Complete Care</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title">
+                    ₹2899<small class="text-body-secondary fw-light">/mo</small>
+                  </h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>Everything in Wellness Care</li>
+                    <li>Full grooming session</li>
+                    <li>Vaccination visit coordination</li>
+                  </ul>
+                  <a
+                    class="btn btn-dark"
+                    href="contact.html"
+                    >Choose Complete Care</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="contact" class="site-footer">
+      <p>© PawCare</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#title">Back to top</a>
+        <a href="#features">Care services</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+    </footer>
+  </body>
+</html>
