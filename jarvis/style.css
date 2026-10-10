@@ -1,0 +1,20 @@
+:root{--bg:#050b14;--fg:#bfefff;--accent:#00d0ff;--panel:#0b1a2a}
+body.light{--bg:#eef6fb;--fg:#08202e;--accent:#0077aa;--panel:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Segoe UI",system-ui,sans-serif}
+main{max-width:720px;margin:0 auto;padding:16px;display:flex;flex-direction:column;height:100vh}
+header{text-align:center}
+h1{margin:4px 0;letter-spacing:.4em;color:var(--accent);font-weight:300}
+#status{margin:0 0 8px;opacity:.7;font-size:.9rem}
+#orb{width:64px;height:64px;margin:0 auto;border-radius:50%;background:radial-gradient(circle,#fff,var(--accent) 40%,transparent 70%);box-shadow:0 0 30px var(--accent);animation:pulse 3s infinite}
+#orb.busy{animation-duration:.6s}
+@keyframes pulse{50%{transform:scale(1.15);opacity:.7}}
+#log{flex:1;overflow-y:auto;background:var(--panel);border:1px solid var(--accent);border-radius:8px;padding:10px}
+.msg{margin:6px 0;padding:8px 12px;border-radius:8px;max-width:85%;white-space:pre-wrap;word-wrap:break-word}
+.user{margin-left:auto;background:var(--accent);color:#001018}
+.bot{border:1px solid var(--accent)}
+form{display:flex;gap:6px;margin-top:10px}
+input[type=text]{flex:1;padding:10px;border-radius:6px;border:1px solid var(--accent);background:var(--panel);color:var(--fg)}
+button{padding:10px 14px;border-radius:6px;border:1px solid var(--accent);background:var(--panel);color:var(--fg);cursor:pointer}
+button.on{background:var(--accent);color:#001018}
+.opt{font-size:.85rem;margin-top:6px}
